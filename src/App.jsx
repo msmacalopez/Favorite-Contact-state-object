@@ -16,45 +16,41 @@ function App() {
 
   function toggleFavorite() {
     // event.preventDefault();
-    setContact((prevCont) => {
+    setContact((prevContObj) => {
       return {
-        ...prevCont,
-        isFavorite: !prevCont.isFavorite,
+        ...prevContObj,
+        isFavorite: !prevContObj.isFavorite,
       };
     });
   }
 
   return (
-    <>
-      <main>
-        <article className="card">
-          <img src={avatar} className="card-avatar" alt="Avatar Icon" />
-          <div className="card-info">
-            <button
-              className="favorite-button"
-              onClick={toggleFavorite}
-              aria-pressed={contact.isFavorite}
-              aria-label={
-                contact.isFavorite ? "Remove from Favorites" : "Add to favorite"
-              }
-            >
-              <img
-                src={starIcon}
-                alt={
-                  contact.isFavorite ? "Filled Star Icon" : "Empty Star Icon"
-                }
-                className="star-icon"
-              />
-            </button>
-            <h2 className="name">
-              {contact.firstName} {contact.lastName}
-            </h2>
-            <p className="phone">{contact.phone}</p>
-            <p className="email">{contact.email}</p>
-          </div>
-        </article>
-      </main>
-    </>
+    <main>
+      <article className="card">
+        <img src={avatar} className="card-avatar" alt="Avatar Icon" />
+        <div className="card-info">
+          <button
+            className="favorite-button"
+            onClick={toggleFavorite}
+            aria-pressed={contact.isFavorite}
+            aria-label={
+              contact.isFavorite ? "Remove from Favorites" : "Add to favorite"
+            }
+          >
+            <img
+              src={starIcon}
+              alt={contact.isFavorite ? "Filled Star Icon" : "Empty Star Icon"}
+              className="star-icon"
+            />
+          </button>
+          <h2 className="name">
+            {contact.firstName} {contact.lastName}
+          </h2>
+          <p className="phone">{contact.phone}</p>
+          <p className="email">{contact.email}</p>
+        </div>
+      </article>
+    </main>
   );
 }
 
